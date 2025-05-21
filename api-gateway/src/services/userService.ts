@@ -35,6 +35,14 @@ export function validateToken(token: string): Promise<ValidateTokenResponse> {
         // This sends the request to the auth-service over gRPC.
         // The auth-service's ValidateToken method processes it and sends back a response.
 
+        // The serialization and deserialization of messages is handled automatically by the
+        // gRPC library using the generated code from ts-proto (or whatever codegen tool you used).
+        // You don’t see encode() or decode() here because:
+        // 🧠 The gRPC client wraps all that under the hood.
+
+        // The gRPC library uses the generated code (from .proto) to:
+        // Serialize the request.
+        // Then sends the resulting binary over HTTP/2.
         client.validateToken(request, (error: ServiceError | null, response: ValidateTokenResponse) => {
             if (error) return reject(error);
             if (!response) return reject(new Error(NO_RESPONSE_FROM_GRPC_SERVER));
