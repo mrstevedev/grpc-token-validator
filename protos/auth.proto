@@ -1,0 +1,36 @@
+/*
+ * syntax="proto3"
+ * Protocol Buffer language version used in this file is version 3
+*/
+syntax="proto3";
+
+/*
+ * package auth
+ * This line defines a package named auth in Protocol Buffer language. It's used to organize and namespace your protocol buffer definitions, similar to packages in programming languages.
+ * In the context of your codebase, this line is likely at the top of the protos/auth.proto file, indicating that the definitions in this file belong to the auth package.
+ */
+package auth;
+
+/*
+ * Define the service AuthService
+ * This line defines a service named AuthService in Protocol Buffer language. A service is a collection of methods that can be called remotely using gRPC.
+ * In the context of your codebase, this line is likely at the top of the protos/auth.proto file, indicating that the methods in this service belong to the AuthService.
+*/
+
+service AuthService {
+    /*
+     * Defines a remote procedure call (RPC) method named ValidateToken in the AuthService service.
+     * It takes a ValidateTokenRequest message as input and returns a ValidateTokenResponse message as output.
+     * In other words, it's a method that can be called remotely using gRPC to validate a token, and it expects a specific request format and returns a specific response format.
+    */
+    rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
+message ValidateTokenRequest {
+    string token = 1;
+}
+
+message ValidateTokenResponse {
+    bool is_valid = 1;
+    string user_id = 2;
+}
