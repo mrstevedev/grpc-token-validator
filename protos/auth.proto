@@ -26,6 +26,8 @@ service AuthService {
     rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
 }
 
+// The message 'token' is found on the call.request object
+// Intellisense will provide the token as a suggestion.
 message ValidateTokenRequest {
     string token = 1;
 }
