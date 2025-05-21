@@ -16,3 +16,9 @@
 6. proto-gen.sh - the target shell script file
 7. After running chmod +x proto-gen.sh, you can execute the script directly like this:
 8. ./proto-gen.sh
+
+🔹 grpc_tools_node_protoc_ts Purpose: A plugin for the protoc compiler that generates TypeScript definitions and service stubs
+using the grpc (Node.js) runtime.
+
+🔹 ts-proto 🧠 What it is: ts-proto is a modern TypeScript code generator for Protocol Buffers. It generates idiomatic,
+tree-shakable, strongly typed TypeScript that works seamlessly with modern tooling.
