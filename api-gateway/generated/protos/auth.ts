@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.0
 //   protoc               v3.20.3
-// source: protos/auth.proto
+// source: auth.proto
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
@@ -26,6 +26,10 @@ export const protobufPackage = "auth";
  * Protocol Buffer language version used in this file is version 3
  */
 
+/**
+ * The message 'token' is found on the call.request object
+ * Intellisense will provide the token as a suggestion.
+ */
 export interface ValidateTokenRequest {
   token: string;
 }
