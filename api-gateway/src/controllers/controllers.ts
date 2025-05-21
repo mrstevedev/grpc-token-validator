@@ -1,14 +1,12 @@
 import { Request, Response } from "express";
 import { AppLogger } from "@/package/logger/AppLogger";
-import { validateToken } from "@/services/userService";
-import { INVALID_TOKEN, TOKEN_REQUIRED } from "@/constants";
 
 export function healthCheckHandler(request: Request, response: Response) {
     AppLogger.info("Health Check");
     response.status(200).json({ status: "OK" });
 }
 
-interface RequestWithUser extends Request {
+export interface RequestWithUser extends Request {
     user?: { id: string };
 }
 
