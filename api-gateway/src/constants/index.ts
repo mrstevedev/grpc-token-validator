@@ -7,3 +7,4 @@ export const NO_RESPONSE_FROM_GRPC_SERVER = "No response from gRPC server";
 export const INVALID_TOKEN = "Invalid token";
 export const UNAUTHORIZED = "Unauthorized";
 export const TOKEN_REQUIRED = "Authorization token is required";
+export const TOKEN_VALIDATION_FAILED = "Token validation failed";

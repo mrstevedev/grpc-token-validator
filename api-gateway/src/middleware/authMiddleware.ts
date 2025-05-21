@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { AppLogger } from "@/package/logger/AppLogger";
 import { validateToken } from "@/services/userService";
-import { INVALID_TOKEN, TOKEN_REQUIRED } from "@/constants";
+import { INVALID_TOKEN, TOKEN_REQUIRED, TOKEN_VALIDATION_FAILED } from "@/constants";
 
 export async function authMiddleware(req: Request, res: Response, next: NextFunction): Promise<void> {
     AppLogger.info("Auth middleware");
@@ -28,7 +28,7 @@ export async function authMiddleware(req: Request, res: Response, next: NextFunc
         next();
     } catch (err) {
         AppLogger.error("Auth middleware error", err);
-        res.status(500).json({ status: "Token validation failed" });
+        res.status(500).json({ status: TOKEN_VALIDATION_FAILED });
         return;
     }
 }
