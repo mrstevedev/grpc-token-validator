@@ -8,6 +8,27 @@
 
 ## Notes
 
+gRPC (short for google Remote Procedure Call) is a high-performance, open-source RPC framework that allows different services or
+systems to communicate with each other — even if they're written in different languages — over the network using method calls
+instead of raw HTTP requests.
+
+🧠 In Simple Terms gRPC lets you write code like this:
+
+```
+authService.login({ username: 'jay', password: 'secret' });
+```
+
+Instead of:
+
+```
+fetch('/login', {
+  method: 'POST',
+  body: JSON.stringify({ username: 'jay', password: 'secret' })
+});
+```
+
+## Project Details
+
 1. User Service (gRPC client) (Validate Token)
 2. Auth Service (gRPC server) (Responds true/false)
 3. chmod +x proto-gen.sh (This makes your proto-gen.sh script executable)
