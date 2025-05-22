@@ -16,7 +16,7 @@ const AuthServiceClient = makeGenericClientConstructor(AuthServiceService, "auth
 
 // Intstantiate the client
 // credentials.createInsecure() is used for local development (no TLS).
-const client = new AuthServiceClient(authServiceUrl, credentials.createInsecure());
+const authServiceClient = new AuthServiceClient(authServiceUrl, credentials.createInsecure());
 
 // ✅ Purpose
 // It defines a validateToken function that your API Gateway (Express app)
@@ -43,7 +43,7 @@ export function validateToken(token: string): Promise<ValidateTokenResponse> {
         // The gRPC library uses the generated code (from .proto) to:
         // Serialize the request.
         // Then sends the resulting binary over HTTP/2.
-        client.validateToken(request, (error: ServiceError | null, response: ValidateTokenResponse) => {
+        authServiceClient.validateToken(request, (error: ServiceError | null, response: ValidateTokenResponse) => {
             if (error) return reject(error);
             if (!response) return reject(new Error(NO_RESPONSE_FROM_GRPC_SERVER));
             resolve(response);
